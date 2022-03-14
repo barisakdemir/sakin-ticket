@@ -38,23 +38,29 @@ Route::group([
     Route::get('user/list',             [UserController::class, 'list'])        ->name('admin.user.list');
     Route::get('user/add',              [UserController::class, 'add'])         ->name('admin.user.add');
     Route::post('user/store',           [UserController::class, 'storeUser'])   ->name('admin.user.store');
-    Route::get('user/{id}/edit',        [UserController::class, 'editUser'])    ->name('admin.user.edit');
-    Route::patch('user/{id}/edit',      [UserController::class, 'patchUser'])   ->name('admin.user.patch');
-    Route::delete('user/{id}/delete',   [UserController::class, 'deleteUser'])  ->name('admin.user.delete');
+    Route::get('user/{id}/edit',        [UserController::class, 'editUser'])    ->name('admin.user.edit')
+        ->whereNumber('id');
+    Route::patch('user/{id}/edit',      [UserController::class, 'patchUser'])   ->name('admin.user.patch')
+        ->whereNumber('id');
+    Route::delete('user/{id}/delete',   [UserController::class, 'deleteUser'])  ->name('admin.user.delete')
+        ->whereNumber('id');
 
     Route::get('department/list',           [DepartmentController::class, 'list'])      ->name('admin.department.list');
     Route::get('department/add',            [DepartmentController::class, 'add'])       ->name('admin.department.add');
     Route::post('department/store',         [DepartmentController::class , 'store'])    ->name('admin.department.store');
-    Route::get('department/{id}/edit',      [DepartmentController::class, 'edit'])      ->name('admin.department.edit');
-    Route::patch('department/{id}/edit',    [DepartmentController::class, 'patch'])     ->name('admin.department.patch');
-    Route::delete('department/{id}/delete', [DepartmentController::class, 'delete'])    ->name('admin.department.delete');
+    Route::get('department/{id}/edit',      [DepartmentController::class, 'edit'])      ->name('admin.department.edit')
+        ->whereNumber('id');
+    Route::patch('department/{id}/edit',    [DepartmentController::class, 'patch'])     ->name('admin.department.patch')
+        ->whereNumber('id');
+    Route::delete('department/{id}/delete', [DepartmentController::class, 'delete'])    ->name('admin.department.delete')
+        ->whereNumber('id');
 
-    Route::get('department/{department_id}/agent/list',
-        [DepartmentAgentController::class, 'list'])     ->name('admin.department.agent.list');
-    Route::post('department/{department_id}/agent/store',
-        [DepartmentAgentController::class, 'store'])    ->name('admin.department.agent.store');
-    Route::delete('department/{department_id}/agent/{user_id}/delete',
-        [DepartmentAgentController::class, 'delete'])   ->name('admin.department.agent.delete');
+    Route::get('department/{department_id}/agent/list', [DepartmentAgentController::class, 'list'])
+        ->name('admin.department.agent.list')   ->whereNumber('department_id');
+    Route::post('department/{department_id}/agent/store', [DepartmentAgentController::class, 'store'])
+        ->name('admin.department.agent.store')  ->whereNumber('department_id');
+    Route::delete('department/{department_id}/agent/{user_id}/delete', [DepartmentAgentController::class, 'delete'])
+        ->name('admin.department.agent.delete') ->whereNumber('department_id')->whereNumber('user_id');
 });
 /*admin pages finish*/
 
@@ -65,9 +71,9 @@ Route::group([
     Route::get('agent/ticket/list',                 [TicketController::class, 'agentList'])
         ->name('agent.ticket.list');
     Route::get('agent/ticket/{id}/view',            [TicketController::class, 'agentView'])
-        ->name('agent.ticket.view');
+        ->name('agent.ticket.view')             ->whereNumber('id');
     Route::post('agent/ticket/{id}/message/store',  [TicketController::class, 'agentMessageStore'])
-        ->name('agent.ticket.message.store');
+        ->name('agent.ticket.message.store')    ->whereNumber('id');
 });
 /*agent pages finish*/
 
@@ -82,9 +88,9 @@ Route::group([
     Route::post('customer/ticker/store',                [TicketController::class, 'customerStore'])
         ->name('customer.ticket.store');
     Route::get('customer/ticket/{id}/view',             [TicketController::class, 'customerView'])
-        ->name('customer.ticket.view');
+        ->name('customer.ticket.view')          ->whereNumber('id');
     Route::post('customer/ticket/{id}/message/store',   [TicketController::class, 'customerMessageStore'])
-        ->name('customer.ticket.message.store');
+        ->name('customer.ticket.message.store') ->whereNumber('id');
 });
 /*customer pages finish*/
 
