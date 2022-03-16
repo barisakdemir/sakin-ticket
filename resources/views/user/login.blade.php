@@ -21,6 +21,11 @@
         <form class="card card-md" action="{{ route('login.post') }}" method="post" autocomplete="off">
             @csrf
           <div class="card-body">
+              @if (session('success'))
+                  <div class="alert alert-success">
+                      {{ session('success') }}
+                  </div>
+              @endif
             <h2 class="card-title text-center mb-4">Login</h2>
             <div class="mb-3">
               <label class="form-label">Email address</label>

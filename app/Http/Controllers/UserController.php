@@ -50,7 +50,7 @@ class UserController extends Controller
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect("dashboard")->withSuccess('You have signed-in');
+        return redirect("login")->withSuccess('Registered successfully');
     }
 
     public function create(array $data)
