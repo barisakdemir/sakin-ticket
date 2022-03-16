@@ -12,7 +12,7 @@ class TicketController extends Controller
 {
     public function customerList()
     {
-        $tickets = Ticket::where('user_id', Auth::user()->id)->get();
+        $tickets = Ticket::where('user_id', Auth::user()->id)->orderBy('status','asc')->orderBy('created_at','desc')->paginate(20);
 
         return view('ticket/customer/list', compact('tickets'));
     }
@@ -82,7 +82,7 @@ class TicketController extends Controller
         foreach (Auth::user()->department as $userDepartment) {
             $userDepartmentIdArray[] = $userDepartment->id;
         }
-        $tickets = Ticket::whereIn('department_id', $userDepartmentIdArray)->get();
+        $tickets = Ticket::whereIn('department_id', $userDepartmentIdArray)->orderBy('status','asc')->orderBy('created_at','desc')->paginate(20);
 
         return view('ticket/agent/list', compact('tickets'));
     }

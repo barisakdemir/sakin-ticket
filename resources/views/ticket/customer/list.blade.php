@@ -89,6 +89,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="card-footer d-flex align-items-center">
+                            {{ $tickets->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
