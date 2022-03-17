@@ -18,7 +18,7 @@ use App\Http\Controllers\TicketController;
 */
 
 Route::get('/', function () {
-    return '';
+    return Redirect()->route('login');
 });
 
 /*registration and auth*/

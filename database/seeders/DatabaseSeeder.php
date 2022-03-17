@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DepartmentAgent;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +19,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             DepartmentSeeder::class,
+            DepartmentAgentSeeder::class,
+            TicketSeeder::class,
+            TicketMessageSeeder::class,
         ]);
     }
 }

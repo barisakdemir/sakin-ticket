@@ -44,7 +44,7 @@ class DepartmentAgentController extends Controller
 
         //redirect
         return Redirect()->route('admin.department.agent.list', ['department_id' => $department_id])
-            ->withSuccessfully('Agent added successfully');
+            ->withSuccess('Agent added successfully');
     }
 
     public function delete($department_id, $user_id)
