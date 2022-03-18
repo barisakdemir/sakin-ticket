@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DepartmentAgentController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,8 @@ Route::get('dashboard',         [UserController::class, 'dashboard'])   ->name('
 Route::group([
     'middleware' => ['auth', 'is.admin']
 ], function(){
+    Route::get('dashboard/admin', [DashboardController::class, 'admin'])->name('dashboard.admin');
+
     Route::get('user/list',             [UserController::class, 'list'])        ->name('admin.user.list');
     Route::get('user/add',              [UserController::class, 'add'])         ->name('admin.user.add');
     Route::post('user/store',           [UserController::class, 'storeUser'])   ->name('admin.user.store');
@@ -61,6 +65,8 @@ Route::group([
         ->name('admin.department.agent.store')  ->whereNumber('department_id');
     Route::delete('department/{department_id}/agent/{user_id}/delete', [DepartmentAgentController::class, 'delete'])
         ->name('admin.department.agent.delete') ->whereNumber('department_id')->whereNumber('user_id');
+
+    Route::get('report/department', [ReportController::class, 'departmentView'])->name('admin.report.department');
 });
 /*admin pages finish*/
 
@@ -68,6 +74,8 @@ Route::group([
 Route::group([
     'middleware' => ['auth','is.agent']
 ], function(){
+    Route::get('dashboard/agent', [DashboardController::class, 'agent'])->name('dashboard.agent');
+
     Route::get('agent/ticket/list',                 [TicketController::class, 'agentList'])
         ->name('agent.ticket.list');
     Route::get('agent/ticket/{id}/view',            [TicketController::class, 'agentView'])
@@ -81,6 +89,8 @@ Route::group([
 Route::group([
     'middleware' => ['auth', 'is.customer']
 ], function(){
+    Route::get('dashboard/customer', [DashboardController::class, 'customer'])->name('dashboard.customer');
+
     Route::get('customer/ticket/list',                  [TicketController::class, 'customerList'])
         ->name('customer.ticket.list');
     Route::get('customer/ticket/add',                   [TicketController::class, 'customerAdd'])

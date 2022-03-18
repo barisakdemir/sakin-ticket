@@ -28,7 +28,14 @@ class UserController extends Controller
             //login log store
             $this->storeLoginLog();
             //redirect
-            return redirect()->intended('dashboard')->withSuccess('Signed in');
+            //agent, customer
+            if (Auth::user()->type === 'admin') {
+                return Redirect()->route('dashboard.admin')->withSuccess('Signed in');
+            } elseif(Auth::user()->type === 'agent') {
+                return Redirect()->route('dashboard.agent')->withSuccess('Signed in');
+            } elseif(Auth::user()->type === 'customer') {
+                return Redirect()->route('dashboard.customer')->withSuccess('Signed in');
+            }
         }
 
         return redirect("login")->withSuccess('Login details are not valid');
@@ -93,10 +100,10 @@ class UserController extends Controller
     {
         //validation
         $request->validate([
-            'name'      => 'required',
-            'email'     => 'required|email|unique:users',
-            'password'  => 'required|min:8',
-            'type'      => 'required',
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+            'type' => 'required',
         ]);
 
         //password hash
@@ -125,10 +132,10 @@ class UserController extends Controller
 
         //validation
         $request->validate([
-            'name'      => 'required',
-            'email'     => 'required|email|exists:users',
-            'password'  => 'required|min:8',
-            'type'      => 'required',
+            'name' => 'required',
+            'email' => 'required|email|exists:users',
+            'password' => 'required|min:8',
+            'type' => 'required',
         ]);
 
         //password hash

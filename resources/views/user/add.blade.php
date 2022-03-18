@@ -26,7 +26,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.user.store') }}"method="POST" class="card">
+                    <form action="{{ route('admin.user.store') }}" method="POST" class="card">
                         @csrf
                         <div class="card-body">
                             <div class="row">

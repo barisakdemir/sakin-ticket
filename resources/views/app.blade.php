@@ -21,14 +21,27 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <h1 class="navbar-brand navbar-brand-autodark">
-                <a href="{{ route('dashboard') }}">
-                    <img src="/static/logo-white.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+                <a href="@if(Auth::user()->type === 'admin')
+                    {{ route('dashboard.admin') }}
+                @elseif(Auth::user()->type === 'agent')
+                    {{ route('dashboard.agent') }}
+                @elseif(Auth::user()->type === 'customer')
+                    {{ route('dashboard.customer') }}
+                @endif">
+                <img src="/static/logo-white.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
                 </a>
             </h1>
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="navbar-nav pt-lg-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard') }}">
+                        <a class="nav-link"
+                           href="@if(Auth::user()->type === 'admin')
+                            {{ route('dashboard.admin') }}
+                           @elseif(Auth::user()->type === 'agent')
+                            {{ route('dashboard.agent') }}
+                           @elseif(Auth::user()->type === 'customer')
+                            {{ route('dashboard.customer') }}
+                           @endif">
                             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                      viewBox="0 0 24 24"
@@ -42,8 +55,9 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.user.list') }}">
+                    @if(Auth::user()->type === 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.user.list') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users"
                                      width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
@@ -55,12 +69,14 @@
                                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                                 </svg>
                             </span>
-                            <span class="nav-link-title">Users</span>
-                        </a>
-                    </li>
+                                <span class="nav-link-title">Users</span>
+                            </a>
+                        </li>
+                    @endif
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.department.list') }}">
+                    @if(Auth::user()->type === 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.department.list') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                      class="icon icon-tabler icon-tabler-arrows-split-2"
@@ -75,12 +91,36 @@
                                    <path d="M18 20l3 -3l-3 -3"></path>
                                 </svg>
                             </span>
-                            <span class="nav-link-title">Departments</span>
-                        </a>
-                    </li>
+                                <span class="nav-link-title">Departments</span>
+                            </a>
+                        </li>
+                    @endif
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('agent.ticket.list') }}">
+                    @if(Auth::user()->type === 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.report.department') }}">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     class="icon icon-tabler icon-tabler-report-analytics" width="24" height="24"
+                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                     stroke-linecap="round" stroke-linejoin="round">
+                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                   <path
+                                       d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
+                                   <rect x="9" y="3" width="6" height="4" rx="2"></rect>
+                                   <path d="M9 17v-5"></path>
+                                   <path d="M12 17v-1"></path>
+                                   <path d="M15 17v-3"></path>
+                                </svg>
+                            </span>
+                                <span class="nav-link-title">Department Report</span>
+                            </a>
+                        </li>
+                    @endif
+
+                    @if(Auth::user()->type === 'agent')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('agent.ticket.list') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ticket"
                                      width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
@@ -93,12 +133,14 @@
                                        d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"></path>
                                 </svg>
                             </span>
-                            <span class="nav-link-title">Tickets</span>
-                        </a>
-                    </li>
+                                <span class="nav-link-title">Tickets</span>
+                            </a>
+                        </li>
+                    @endif
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('customer.ticket.list') }}">
+                    @if(Auth::user()->type === 'customer')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('customer.ticket.list') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ticket"
                                      width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
@@ -111,9 +153,10 @@
                                        d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"></path>
                                 </svg>
                             </span>
-                            <span class="nav-link-title">Tickets</span>
-                        </a>
-                    </li>
+                                <span class="nav-link-title">Tickets</span>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -415,5 +458,33 @@
 <!-- Tabler Core -->
 <script src="/dist/js/tabler.min.js"></script>
 <script src="/dist/js/demo.min.js"></script>
+
+<script src="/dist/libs/litepicker/dist/litepicker.js"></script>
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+        window.Litepicker && (new Litepicker({
+            element: document.getElementById('start_date'),
+            buttonText: {
+                previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>`,
+                nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>`,
+            },
+        }));
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        window.Litepicker && (new Litepicker({
+            element: document.getElementById('finish_date'),
+            buttonText: {
+                previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>`,
+                nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>`,
+            },
+        }));
+    });
+    // @formatter:on
+</script>
 </body>
 </html>
