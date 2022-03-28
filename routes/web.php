@@ -67,6 +67,7 @@ Route::group([
         ->name('admin.department.agent.delete') ->whereNumber('department_id')->whereNumber('user_id');
 
     Route::get('report/department', [ReportController::class, 'departmentView'])->name('admin.report.department');
+    Route::get('report/agent',      [ReportController::class, 'agentView'])     ->name('admin.report.agent');
 });
 /*admin pages finish*/
 

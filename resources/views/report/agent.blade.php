@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        Department Report
+                        Agent Report
                     </h2>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.report.department') }}" method="GET" class="card">
+                    <form action="{{ route('admin.report.agent') }}" method="GET" class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-xl-3">
@@ -95,11 +95,11 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <div class="form-label">Department</div>
-                                                <select class="form-select" name="department" required>
+                                                <div class="form-label">Agent</div>
+                                                <select class="form-select" name="agent" required>
                                                     <option value="all">All</option>
-                                                    @foreach($departments as $department)
-                                                    <option value="{{ $department->id }}" {{ ( $department->id == $form['department']) ? 'selected' : '' }}>{{ $department->name }}</option>
+                                                    @foreach($agents as $agent)
+                                                    <option value="{{ $agent->id }}" {{ ( $agent->id == $form['agent']) ? 'selected' : '' }}>{{ $agent->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
