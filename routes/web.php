@@ -68,6 +68,8 @@ Route::group([
 
     Route::get('report/department', [ReportController::class, 'departmentView'])->name('admin.report.department');
     Route::get('report/agent',      [ReportController::class, 'agentView'])     ->name('admin.report.agent');
+
+    Route::get('test-email-read', [TicketController::class, 'readEmailCron']);
 });
 /*admin pages finish*/
 
