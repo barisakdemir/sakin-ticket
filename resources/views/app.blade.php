@@ -22,13 +22,13 @@
             </button>
             <h1 class="navbar-brand navbar-brand-autodark">
                 <a href="@if(Auth::user()->type === 'admin')
-                    {{ route('dashboard.admin') }}
+                {{ route('dashboard.admin') }}
                 @elseif(Auth::user()->type === 'agent')
-                    {{ route('dashboard.agent') }}
+                {{ route('dashboard.agent') }}
                 @elseif(Auth::user()->type === 'customer')
-                    {{ route('dashboard.customer') }}
+                {{ route('dashboard.customer') }}
                 @endif">
-                <img src="/static/logo-white.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+                    <img src="/static/logo-white.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
                 </a>
             </h1>
             <div class="collapse navbar-collapse" id="navbar-menu">
@@ -36,11 +36,11 @@
                     <li class="nav-item">
                         <a class="nav-link"
                            href="@if(Auth::user()->type === 'admin')
-                            {{ route('dashboard.admin') }}
+                           {{ route('dashboard.admin') }}
                            @elseif(Auth::user()->type === 'agent')
-                            {{ route('dashboard.agent') }}
+                           {{ route('dashboard.agent') }}
                            @elseif(Auth::user()->type === 'customer')
-                            {{ route('dashboard.customer') }}
+                           {{ route('dashboard.customer') }}
                            @endif">
                             <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -136,6 +136,25 @@
                                 </svg>
                             </span>
                                 <span class="nav-link-title">Agent Report</span>
+                            </a>
+                        </li>
+                    @endif
+
+                    @if(Auth::user()->type === 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.api.token.list') }}">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-api"
+                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                     fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                   <path d="M4 13h5"></path>
+                                   <path d="M12 16v-8h3a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-3"></path>
+                                   <path d="M20 8v8"></path>
+                                   <path d="M9 16v-5.5a2.5 2.5 0 0 0 -5 0v5.5"></path>
+                                </svg>
+                            </span>
+                                <span class="nav-link-title">Api Tokens</span>
                             </a>
                         </li>
                     @endif

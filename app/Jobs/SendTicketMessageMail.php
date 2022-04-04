@@ -11,6 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\TicketMessage;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Psy\Util\Str;
 
 class SendTicketMessageMail implements ShouldQueue
 {
@@ -37,7 +38,7 @@ class SendTicketMessageMail implements ShouldQueue
     {
         /*prepare data*/
         $ticketMessage = TicketMessage::whereId($this->ticketMessage)->first();
-        $emailAddress = $ticketMessage->ticket->user->email;
+        $emailAddress = Str::replace('guest:','',$ticketMessage->ticket->user->email);
         $ticketTitle = $ticketMessage->ticket->title . ' | ' . env('APP_NAME');
         $ticketLastMessage = $ticketMessage->message;
         $ticketLastMessageDatetime = $ticketMessage->created_at;

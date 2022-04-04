@@ -7,6 +7,7 @@ use App\Http\Controllers\DepartmentAgentController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ApiTokenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,11 @@ Route::group([
     Route::get('report/agent',      [ReportController::class, 'agentView'])     ->name('admin.report.agent');
 
     Route::get('test-email-read', [TicketController::class, 'readEmailCron']);
+
+    Route::get('api-token/list',     [ApiTokenController::class, 'list'])->name('admin.api.token.list');
+    Route::get('api-token/generate', [ApiTokenController::class, 'generate'])->name('admin.api.token.generate');
+    Route::delete('api-token/{id}/delete', [ApiTokenController::class, 'delete'])->name('admin.api.token.delete')
+        ->whereNumber('id');
 });
 /*admin pages finish*/
 
