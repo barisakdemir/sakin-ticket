@@ -31,4 +31,9 @@ class Ticket extends Model
     {
         return $this->hasMany(TicketMessage::class)->orderBy('created_at','DESC');
     }
+
+    public function ticketAnsweringAgent()
+    {
+        return $this->hasMany(TicketAnsweringAgent::class)->orderBy('created_at','DESC');
+    }
 }

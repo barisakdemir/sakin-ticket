@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Ticket;
 use App\Models\TicketMessage;
 use App\Models\Department;
+use App\Models\TicketAnsweringAgent;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -88,13 +90,34 @@ class TicketController extends Controller
             $userDepartmentIdArray[] = $userDepartment->department_id;
         }
         $tickets = Ticket::whereIn('department_id', $userDepartmentIdArray)->orderBy('status', 'asc')->orderBy('created_at', 'desc')->paginate(20);
+        $expiresDateTime = Carbon::now()->addMinutes(-15);
 
-        return view('ticket/agent/list', compact('tickets'));
+        return view('ticket/agent/list', compact('tickets','expiresDateTime'));
     }
 
     public function agentView($id)
     {
         $ticket = Ticket::whereId($id)->first() ?? abort(404, 'Ticket not found');
+
+        /*check any agent is answering?*/
+        $expiresDateTime = Carbon::now()->addMinutes(-15);
+        $ticketAnsweringAgent = $ticket->ticketAnsweringAgent
+            ->where('created_at', '>', $expiresDateTime)
+            ->where('user_id', '!=', Auth::user()->id)
+            ->first();
+
+        if ($ticketAnsweringAgent) {
+            //another agent answering
+            return Redirect()->back()->withErrors('Another agent answering');
+        } else {
+            //no one answering
+            TicketAnsweringAgent::create([
+                'ticket_id' => $id,
+                'user_id' => Auth::user()->id,
+            ]);
+        }
+        /*check any agent is answering? finish*/
+
         return view('ticket/agent/view', compact('ticket'));
     }
 
