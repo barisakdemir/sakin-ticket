@@ -31,6 +31,15 @@ Route::post('registration', [UserController::class, 'storeRegistration'])   ->na
 Route::get('signout',       [UserController::class, 'signOut'])             ->name('signout');
 /*registration and auth finish*/
 
+/*common pages for all user*/
+Route::group([
+    'middleware' => ['auth']
+], function(){
+    Route::get('change-password', [UserController::class, 'changePassword'])->name('changePassword');
+    Route::patch('change-password', [UserController::class, 'patchChangePassword'])->name('changePassword.patch');
+});
+/*common pages for all user finish*/
+
 Route::get('dashboard',         [UserController::class, 'dashboard'])   ->name('dashboard');
 
 /*admin pages*/

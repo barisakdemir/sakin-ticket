@@ -329,7 +329,7 @@
                         <a href="#" class="dropdown-item">Profile & account</a>
                         <a href="#" class="dropdown-item">Feedback</a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">Settings</a>
+                        <a href="{{ route('changePassword') }}" class="dropdown-item">Change Password</a>
                         <a href="{{ route('signout') }}" class="dropdown-item">Logout</a>
                     </div>
                 </div>

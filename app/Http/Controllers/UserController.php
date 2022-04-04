@@ -160,6 +160,35 @@ class UserController extends Controller
         return Redirect()->route('admin.user.list')->withSuccess('User deleted successfully');
     }
 
+    public function changePassword()
+    {
+        return view('user/change-password');
+    }
+
+    public function patchChangePassword(Request $request)
+    {
+        //validation
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8|same:new_password_confirmation',
+            'new_password_confirmation' => 'required|min:8',
+        ]);
+
+        //check password
+        if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
+            // The passwords matches
+            return redirect()->back()->withErrors("Your current password does not matches with the password.");
+        }
+
+        //patch user
+        $user = Auth::user();
+        $user->password = Hash::make($request['new_password']);
+        $user->save();
+
+        //redirect
+        return redirect()->back()->withSuccess("User updated successfully");
+    }
+
     public function signOut()
     {
         Session::flush();
