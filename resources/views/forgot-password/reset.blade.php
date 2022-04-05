@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- CSS files -->
-    <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
-    <link href="./dist/css/tabler-flags.min.css" rel="stylesheet"/>
-    <link href="./dist/css/tabler-payments.min.css" rel="stylesheet"/>
-    <link href="./dist/css/tabler-vendors.min.css" rel="stylesheet"/>
-    <link href="./dist/css/demo.min.css" rel="stylesheet"/>
+    <link href="/dist/css/tabler.min.css" rel="stylesheet"/>
+    <link href="/dist/css/tabler-flags.min.css" rel="stylesheet"/>
+    <link href="/dist/css/tabler-payments.min.css" rel="stylesheet"/>
+    <link href="/dist/css/tabler-vendors.min.css" rel="stylesheet"/>
+    <link href="/dist/css/demo.min.css" rel="stylesheet"/>
   </head>
   <body class="antialiased border-top-wide border-primary d-flex flex-column">
     <div class="page page-center">
@@ -18,7 +18,7 @@
         <div class="text-center mb-4">
           <a href="."><img src="./static/logo.svg" height="36" alt=""></a>
         </div>
-        <form class="card card-md" action="{{ route('login.post') }}" method="post" autocomplete="off">
+        <form class="card card-md" action="{{ route('forgotPassword.resetStore', [ 'token' => $token]) }}" method="post" autocomplete="off">
             @csrf
           <div class="card-body">
               @if (session('success'))
@@ -26,30 +26,28 @@
                       {{ session('success') }}
                   </div>
               @endif
-            <h2 class="card-title text-center mb-4">Login</h2>
-            <div class="mb-3">
-              <label class="form-label">Email address</label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="Enter email" required autofocus>
-                @if ($errors->has('email'))
-                <span class="text-danger">{{ $errors->first('email') }}</span>
-                @endif
-            </div>
+              @if(count($errors) > 0)
+                  <div class="alert alert-danger">
+                      @foreach ($errors->all() as $error)
+                          <div class="text-muted">{{ $error }}</div>
+                      @endforeach
+                  </div>
+              @endif
+            <h2 class="card-title text-center mb-4">Reset Password</h2>
             <div class="mb-2">
-              <label class="form-label">
-                Password
-                <span class="form-label-description">
-                  <a href="{{ route('forgotPassword.index') }}">I forgot password</a>
-                </span>
-              </label>
+              <label class="form-label">Password</label>
               <div class="input-group input-group-flat">
                 <input type="password" id="password" name="password" class="form-control"  placeholder="Password"  autocomplete="off" required>
               </div>
-                @if ($errors->has('password'))
-                <span class="text-danger">{{ $errors->first('password') }}</span>
-                @endif
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Password Confirm</label>
+              <div class="input-group input-group-flat">
+                  <input type="password" id="password" name="password_confirmation" class="form-control"  placeholder="Password Confirm"  autocomplete="off" required>
+              </div>
             </div>
             <div class="form-footer">
-              <button type="submit" class="btn btn-primary w-100">Sign in</button>
+              <button type="submit" class="btn btn-primary w-100">Send</button>
             </div>
           </div>
         </form>

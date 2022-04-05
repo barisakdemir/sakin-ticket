@@ -8,6 +8,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ApiTokenController;
+use App\Http\Controllers\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,13 @@ Route::get('registration',  [UserController::class, 'registration'])        ->na
 Route::post('registration', [UserController::class, 'storeRegistration'])   ->name('register.post');
 Route::get('signout',       [UserController::class, 'signOut'])             ->name('signout');
 /*registration and auth finish*/
+
+/*forgot password*/
+Route::get('forgot-password', [ForgotPasswordController::class, 'index'])->name('forgotPassword.index');
+Route::post('forgot-password', [ForgotPasswordController::class, 'store'])->name('forgotPassword.store');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'reset'])->name('forgotPassword.reset');
+Route::post('reset-password/{token}', [ForgotPasswordController::class, 'resetStore'])->name('forgotPassword.resetStore');
+/*forgot password finish*/
 
 /*common pages for all user*/
 Route::group([
