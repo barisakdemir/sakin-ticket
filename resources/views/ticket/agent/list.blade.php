@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        Tickets
+                        {{ __('messages.tickets') }}
                     </h2>
                 </div>
             </div>
@@ -40,11 +40,11 @@
                                 class="table table-vcenter card-table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Title</th>
-                                    <th>Department</th>
-                                    <th>Importance</th>
-                                    <th>Status</th>
-                                    <th>Number of Msg</th>
+                                    <th>{{ __('messages.title') }}</th>
+                                    <th>{{ __('messages.department') }}</th>
+                                    <th>{{ __('messages.importance') }}</th>
+                                    <th>{{ __('messages.status') }}</th>
+                                    <th>{{ __('messages.number_of_msg') }}</th>
                                     <th class="w-1"></th>
                                 </tr>
                                 </thead>
@@ -74,7 +74,7 @@
                                                         <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
                                                         <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
                                                         <line x1="16" y1="5" x2="19" y2="8"></line>
-                                                    </svg>Reply</button>
+                                                    </svg>{{ __('messages.reply') }}</button>
                                             </form>
                                             </div>
                                         </td>

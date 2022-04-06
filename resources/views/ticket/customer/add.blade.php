@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        New Ticket
+                        {{ __('messages.new_ticket') }}
                     </h2>
                 </div>
             </div>
@@ -34,9 +34,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Title</label>
+                                                <label class="form-label">{{ __('messages.title') }}</label>
                                                 <input type="text" class="form-control" name="title" value=""
-                                                       placeholder="Title placeholder" required>
+                                                       placeholder="{{ __('messages.title') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <div class="form-label">Department</div>
+                                                <div class="form-label">{{ __('messages.department') }}</div>
                                                 <select class="form-select" name="department" required>
                                                     <option value="">Select</option>
                                                     @foreach($departments as $department)
@@ -62,7 +62,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <div class="form-label">Importance</div>
+                                                <div class="form-label">{{ __('messages.importance') }}</div>
                                                 <select class="form-select" name="importance" required>
                                                     <option value="">Select</option>
                                                     <option value="1">1</option>
@@ -80,8 +80,8 @@
                                 <div class="col-xl-12">
                                     <div class="col-md-6 col-xl-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Message <span class="form-label-description">56/100</span></label>
-                                            <textarea class="form-control" name="message" rows="6" placeholder="Message.."></textarea>
+                                            <label class="form-label">{{ __('messages.message') }} <span class="form-label-description">56/100</span></label>
+                                            <textarea class="form-control" name="message" rows="6" placeholder="{{ __('messages.message') }}.."></textarea>
                                         </div>
                                     </div>
 
@@ -94,7 +94,7 @@
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <line x1="12" y1="5" x2="12" y2="19"></line>
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg> Post</button>
+                                    </svg> {{ __('messages.post') }}</button>
                             </div>
                         </div>
                     </form>

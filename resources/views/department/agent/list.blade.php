@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        {{ $department->name }} Department Agents
+                        {{ $department->name }} {{ __('messages.department_agents') }}
                     </h2>
                 </div>
             </div>
@@ -42,9 +42,9 @@
                                         <div class="row">
                                             <div class="col-md-6 col-xl-12">
                                                 <div class="mb-3">
-                                                    <div class="form-label">Agent</div>
+                                                    <div class="form-label">{{ __('messages.agent') }}</div>
                                                     <select class="form-select" name="user_id">
-                                                        <option value="">Select</option>
+                                                        <option value="">{{ __('messages.select') }}</option>
                                                         @foreach($agents as $agent)
                                                             <option value="{{ $agent->id }}">{{ $agent->name }}</option>
                                                         @endforeach
@@ -67,7 +67,7 @@
                                             <line x1="12" y1="5" x2="12" y2="19"></line>
                                             <line x1="5" y1="12" x2="19" y2="12"></line>
                                         </svg>
-                                        Add
+                                        {{ __('messages.add') }}
                                     </button>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                 class="table table-vcenter card-table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>{{ __('messages.name') }}</th>
                                     <th class="w-1"></th>
                                 </tr>
                                 </thead>
@@ -99,7 +99,7 @@
                                                     @csrf
                                                     {{ method_field('DELETE') }}
                                                     <button type="submit" class="btn btn-danger ms-auto"
-                                                            onclick="return confirm('Are you sure you want to delete this?');">
+                                                            onclick="return confirm('{{ __('messages.are_you_sure_you_want_to_delete_this') }}');">
                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                              class="icon icon-tabler icon-tabler-edit" width="24"
                                                              height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -112,7 +112,7 @@
                                                                 d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
                                                             <line x1="16" y1="5" x2="19" y2="8"></line>
                                                         </svg>
-                                                        Delete
+                                                        {{ __('messages.delete') }}
                                                     </button>
                                                 </form>
                                             </div>

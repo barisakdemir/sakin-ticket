@@ -33,7 +33,7 @@
                                 <div class="col-xl-12">
                                     <div class="col-md-6 col-xl-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Message <span class="form-label-description">56/100</span></label>
+                                            <label class="form-label">{{ __('messages.message') }} <span class="form-label-description">56/100</span></label>
                                             <textarea class="form-control" name="message" rows="6" placeholder="Message.."></textarea>
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <line x1="12" y1="5" x2="12" y2="19"></line>
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg> Post</button>
+                                    </svg> {{ __('messages.post') }}</button>
                             </div>
                         </div>
                     </form>

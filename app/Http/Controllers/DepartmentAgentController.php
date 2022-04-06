@@ -44,7 +44,7 @@ class DepartmentAgentController extends Controller
 
         //redirect
         return Redirect()->route('admin.department.agent.list', ['department_id' => $department_id])
-            ->withSuccess('Agent added successfully');
+            ->withSuccess(__('messages.agent_added_successfully'));
     }
 
     public function delete($department_id, $user_id)
@@ -56,6 +56,6 @@ class DepartmentAgentController extends Controller
         $departmenAgent->delete();
 
         //redirect
-        return Redirect()->route('admin.department.agent.list', ['department_id' => $department_id])->withSuccess('Agent deleted successfully');
+        return Redirect()->route('admin.department.agent.list', ['department_id' => $department_id])->withSuccess(__('messages.agent_deleted_successfully'));
     }
 }

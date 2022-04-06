@@ -33,26 +33,26 @@
                       @endforeach
                   </div>
               @endif
-            <h2 class="card-title text-center mb-4">Reset Password</h2>
+            <h2 class="card-title text-center mb-4">{{ __('messages.reset_password') }}</h2>
             <div class="mb-2">
-              <label class="form-label">Password</label>
+              <label class="form-label">{{ __('messages.password') }}</label>
               <div class="input-group input-group-flat">
-                <input type="password" id="password" name="password" class="form-control"  placeholder="Password"  autocomplete="off" required>
+                <input type="password" id="password" name="password" class="form-control"  placeholder="{{ __('messages.password') }}"  autocomplete="off" required>
               </div>
             </div>
             <div class="mb-2">
-              <label class="form-label">Password Confirm</label>
+              <label class="form-label">{{ __('messages.password_confirmation') }}</label>
               <div class="input-group input-group-flat">
-                  <input type="password" id="password" name="password_confirmation" class="form-control"  placeholder="Password Confirm"  autocomplete="off" required>
+                  <input type="password" id="password" name="password_confirmation" class="form-control"  placeholder="{{ __('messages.password_confirmation') }}"  autocomplete="off" required>
               </div>
             </div>
             <div class="form-footer">
-              <button type="submit" class="btn btn-primary w-100">Send</button>
+              <button type="submit" class="btn btn-primary w-100">{{ __('messages.send') }}</button>
             </div>
           </div>
         </form>
         <div class="text-center text-muted mt-3">
-          Don't have account yet? <a href="{{ route('register') }}" tabindex="-1">Register</a>
+            {{ __('messages.dont_have_account_yet') }} <a href="{{ route('register') }}" tabindex="-1">{{ __('messages.register') }}</a>
         </div>
       </div>
     </div>

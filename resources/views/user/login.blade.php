@@ -26,35 +26,35 @@
                       {{ session('success') }}
                   </div>
               @endif
-            <h2 class="card-title text-center mb-4">Login</h2>
+            <h2 class="card-title text-center mb-4">{{ __('messages.login') }}</h2>
             <div class="mb-3">
-              <label class="form-label">Email address</label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="Enter email" required autofocus>
+              <label class="form-label">{{ __('messages.email_address') }}</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="{{ __('messages.email_address') }}" required autofocus>
                 @if ($errors->has('email'))
                 <span class="text-danger">{{ $errors->first('email') }}</span>
                 @endif
             </div>
             <div class="mb-2">
               <label class="form-label">
-                Password
+                  {{ __('messages.password') }}
                 <span class="form-label-description">
-                  <a href="{{ route('forgotPassword.index') }}">I forgot password</a>
+                  <a href="{{ route('forgotPassword.index') }}">{{ __('messages.i_forgot_password') }}</a>
                 </span>
               </label>
               <div class="input-group input-group-flat">
-                <input type="password" id="password" name="password" class="form-control"  placeholder="Password"  autocomplete="off" required>
+                <input type="password" id="password" name="password" class="form-control"  placeholder="{{ __('messages.password') }}"  autocomplete="off" required>
               </div>
                 @if ($errors->has('password'))
                 <span class="text-danger">{{ $errors->first('password') }}</span>
                 @endif
             </div>
             <div class="form-footer">
-              <button type="submit" class="btn btn-primary w-100">Sign in</button>
+              <button type="submit" class="btn btn-primary w-100">{{ __('messages.sign_in') }}</button>
             </div>
           </div>
         </form>
         <div class="text-center text-muted mt-3">
-          Don't have account yet? <a href="{{ route('register') }}" tabindex="-1">Register</a>
+            {{ __('messages.dont_have_account_yet') }} <a href="{{ route('register') }}" tabindex="-1">{{ __('messages.register') }}</a>
         </div>
       </div>
     </div>

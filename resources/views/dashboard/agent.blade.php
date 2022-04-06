@@ -8,7 +8,7 @@
             <div class="col">
                 <!-- Page pre-title -->
                 <h2 class="page-title">
-                    Dashboard
+                    {{ __('messages.dashboard') }}
                 </h2>
             </div>
             <!-- Page title actions -->
@@ -23,7 +23,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
-                            <div class="subheader">Active Ticket</div>
+                            <div class="subheader">{{ __('messages.active_ticket') }}</div>
                         </div>
                         <div class="h1 mb-3">{{ $data['active_ticket_count'] }}</div>
                     </div>
@@ -35,10 +35,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
-                            <div class="subheader">Ticket</div>
+                            <div class="subheader">{{ __('messages.ticket') }}</div>
                             <div class="ms-auto lh-1">
                                 <div class="dropdown">
-                                    <span class="text-muted" aria-haspopup="true" aria-expanded="false">Last 7 days</span>
+                                    <span class="text-muted" aria-haspopup="true" aria-expanded="false">{{ __('messages.last_days', ['DAYS' => '7']) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -52,10 +52,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
-                            <div class="subheader">Message</div>
+                            <div class="subheader">{{ __('messages.message') }}</div>
                             <div class="ms-auto lh-1">
                                 <div class="dropdown">
-                                    <span class="text-muted" aria-haspopup="true" aria-expanded="false">Last 7 days</span>
+                                    <span class="text-muted" aria-haspopup="true" aria-expanded="false">{{ __('messages.last_days', ['DAYS' => '7']) }}</span>
                                 </div>
                             </div>
                         </div>

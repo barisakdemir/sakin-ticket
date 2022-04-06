@@ -51,7 +51,7 @@
                                         d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path
                                         d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg>
                             </span>
-                            <span class="nav-link-title">Home</span>
+                            <span class="nav-link-title">{{ __('messages.home') }}</span>
                         </a>
                     </li>
 
@@ -69,7 +69,7 @@
                                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                                 </svg>
                             </span>
-                                <span class="nav-link-title">Users</span>
+                                <span class="nav-link-title">{{ __('messages.users') }}</span>
                             </a>
                         </li>
                     @endif
@@ -91,7 +91,7 @@
                                    <path d="M18 20l3 -3l-3 -3"></path>
                                 </svg>
                             </span>
-                                <span class="nav-link-title">Departments</span>
+                                <span class="nav-link-title">{{ __('messages.departments') }}</span>
                             </a>
                         </li>
                     @endif
@@ -113,7 +113,7 @@
                                    <path d="M15 17v-3"></path>
                                 </svg>
                             </span>
-                                <span class="nav-link-title">Department Report</span>
+                                <span class="nav-link-title">{{ __('messages.department_report') }}</span>
                             </a>
                         </li>
                     @endif
@@ -135,7 +135,7 @@
                                    <path d="M15 17v-3"></path>
                                 </svg>
                             </span>
-                                <span class="nav-link-title">Agent Report</span>
+                                <span class="nav-link-title">{{ __('messages.agent_report') }}</span>
                             </a>
                         </li>
                     @endif
@@ -154,7 +154,7 @@
                                    <path d="M9 16v-5.5a2.5 2.5 0 0 0 -5 0v5.5"></path>
                                 </svg>
                             </span>
-                                <span class="nav-link-title">Api Tokens</span>
+                                <span class="nav-link-title">{{ __('messages.api_tokens') }}</span>
                             </a>
                         </li>
                     @endif
@@ -174,7 +174,7 @@
                                        d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"></path>
                                 </svg>
                             </span>
-                                <span class="nav-link-title">Tickets</span>
+                                <span class="nav-link-title">{{ __('messages.tickets') }}</span>
                             </a>
                         </li>
                     @endif
@@ -194,7 +194,7 @@
                                        d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"></path>
                                 </svg>
                             </span>
-                                <span class="nav-link-title">Tickets</span>
+                                <span class="nav-link-title">{{ __('messages.tickets') }}</span>
                             </a>
                         </li>
                     @endif
@@ -348,8 +348,8 @@
                         <a href="#" class="dropdown-item">Profile & account</a>
                         <a href="#" class="dropdown-item">Feedback</a>
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('changePassword') }}" class="dropdown-item">Change Password</a>
-                        <a href="{{ route('signout') }}" class="dropdown-item">Logout</a>
+                        <a href="{{ route('changePassword') }}" class="dropdown-item">{{ __('messages.change_password') }}</a>
+                        <a href="{{ route('signout') }}" class="dropdown-item">{{ __('messages.logout') }}</a>
                     </div>
                 </div>
             </div>

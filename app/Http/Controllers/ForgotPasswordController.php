@@ -37,7 +37,7 @@ class ForgotPasswordController extends Controller
         SendForgotPasswordMail::dispatch($request->email);
 
         //redirect
-        return back()->withSuccess('We have mailed your password reset link');
+        return back()->withSuccess(__('messages.we_have_mailed_your_password_reset_link'));
     }
 
     public function reset($token)
@@ -56,7 +56,7 @@ class ForgotPasswordController extends Controller
         //check token
         $checkToken = PasswordReset::where('token', $token)->first();
         if (!$checkToken) {
-            return back()->withInput()->withErrors('Invalid token');
+            return back()->withInput()->withErrors(__('messages.invalid_token'));
         }
 
         //update password
@@ -66,6 +66,6 @@ class ForgotPasswordController extends Controller
         PasswordReset::where('token', $token)->delete();
 
         //return
-        return Redirect()->route('login')->withSuccess('Your password has been changed');
+        return Redirect()->route('login')->withSuccess(__('messages.your_password_has_been_changed'));
     }
 }

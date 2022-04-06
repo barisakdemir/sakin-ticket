@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        Edit Department
+                        {{ __('messages.edit_department') }}
                     </h2>
                 </div>
             </div>
@@ -35,9 +35,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Name</label>
+                                                <label class="form-label">{{ __('messages.name') }}</label>
                                                 <input type="text" class="form-control" name="name" value="{{ $department->name }}"
-                                                       placeholder="Name placeholder" required>
+                                                       placeholder="{{ __('messages.name') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                                         <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
                                         <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
                                         <line x1="16" y1="5" x2="19" y2="8"></line>
-                                    </svg> Edit department</button>
+                                    </svg> {{ __('messages.edit_department') }}</button>
                             </div>
                         </div>
                     </form>

@@ -55,7 +55,7 @@ class TicketController extends Controller
         ]);
 
         //redirect
-        return Redirect()->route('customer.ticket.list')->withSuccess('Ticket added successfully');
+        return Redirect()->route('customer.ticket.list')->withSuccess(__('messages.ticket_added_successfully'));
     }
 
     public function customerView($id)
@@ -79,7 +79,7 @@ class TicketController extends Controller
         ]);
 
         //redirect
-        return Redirect()->route('customer.ticket.list')->withSuccess('Message sent successfully');
+        return Redirect()->route('customer.ticket.list')->withSuccess(__('messages.message_sent_successfully'));
     }
 
     public function agentList()
@@ -108,7 +108,7 @@ class TicketController extends Controller
 
         if ($ticketAnsweringAgent) {
             //another agent answering
-            return Redirect()->back()->withErrors('Another agent answering');
+            return Redirect()->back()->withErrors(__('messages.another_agent_answering'));
         } else {
             //no one answering
             TicketAnsweringAgent::create([
@@ -139,7 +139,7 @@ class TicketController extends Controller
         SendTicketMessageMail::dispatch($ticketMessage->id);
 
         //redirect
-        return Redirect()->route('agent.ticket.list')->withSuccess('Message sent successfully');
+        return Redirect()->route('agent.ticket.list')->withSuccess(__('messages.message_sent_successfully'));
     }
 
     public function readEmailCron()

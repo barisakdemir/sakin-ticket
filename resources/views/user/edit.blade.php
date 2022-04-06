@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        Edit User
+                        {{ __('messages.edit_user') }}
                     </h2>
                 </div>
             </div>
@@ -34,13 +34,13 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Name</label>
+                                                <label class="form-label">{{ __('messages.name') }}</label>
                                                 <input type="text" class="form-control" name="name"
                                                        value="{{ $user->name }}"
-                                                       placeholder="Name placeholder" required>
+                                                       placeholder="{{ __('messages.name') }}" required>
                                             </div>
                                             <div class="mb-3">
-                                                <div class="form-label">Role</div>
+                                                <div class="form-label">{{ __('messages.role') }}</div>
                                                 <select class="form-select" name="type" required>
                                                     <option value="">Select</option>
                                                     <option value="admin" @if($user->type == 'admin') selected @endif >Admin</option>
@@ -56,9 +56,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Email</label>
+                                                <label class="form-label">{{ __('messages.email_address') }}</label>
                                                 <input type="email" class="form-control" name="email" value="{{ $user->email }}"
-                                                       placeholder="Email placeholder" required>
+                                                       placeholder="{{ __('messages.email_address') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -68,9 +68,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Password</label>
+                                                <label class="form-label">{{ __('messages.password') }}</label>
                                                 <input type="password" class="form-control" name="password" value=""
-                                                       placeholder="Password placeholder" required>
+                                                       placeholder="{{ __('messages.password') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                         <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
                                         <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
                                         <line x1="16" y1="5" x2="19" y2="8"></line>
-                                    </svg> Edit User</button>
+                                    </svg> {{ __('messages.edit_user') }}</button>
                             </div>
                         </div>
                     </form>

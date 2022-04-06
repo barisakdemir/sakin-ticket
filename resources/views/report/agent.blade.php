@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        Agent Report
+                        {{ __('messages.agent_report') }}
                     </h2>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Start Date</label>
+                                                <label class="form-label">{{ __('messages.start_date') }}</label>
                                                 <div class="input-icon mb-2">
                                                     <input class="form-control " placeholder="Select a date"
                                                            name="start_date" id="start_date" value="{{ $form['start_date'] }}"/>
@@ -64,7 +64,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Finish Date</label>
+                                                <label class="form-label">{{ __('messages.finish_date') }}</label>
                                                 <div class="input-icon mb-2">
                                                     <input class="form-control" placeholder="Select a date"
                                                            name="finish_date" id="finish_date" value="{{ $form['finish_date'] }}"/>
@@ -95,7 +95,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <div class="form-label">Agent</div>
+                                                <div class="form-label">{{ __('messages.agent') }}</div>
                                                 <select class="form-select" name="agent" required>
                                                     <option value="all">All</option>
                                                     @foreach($agents as $agent)
@@ -123,7 +123,7 @@
                                         <line x1="12" y1="17" x2="12" y2="17.01"></line>
                                         <line x1="16" y1="17" x2="16" y2="17.01"></line>
                                     </svg>
-                                    Submit
+                                    {{ __('messages.submit') }}
                                 </button>
                             </div>
                         </div>
@@ -138,12 +138,12 @@
                                 class="table table-vcenter card-table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Ticket</th>
-                                    <th>Active</th>
-                                    <th>Closed</th>
-                                    <th>Ratio</th>
-                                    <th>Message</th>
+                                    <th>{{ __('messages.date') }}</th>
+                                    <th>{{ __('messages.ticket') }}</th>
+                                    <th>{{ __('messages.active') }}</th>
+                                    <th>{{ __('messages.closed') }}</th>
+                                    <th>{{ __('messages.ratio') }}</th>
+                                    <th>{{ __('messages.message') }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>

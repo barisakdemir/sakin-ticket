@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        Change Password
+                        {{ __('messages.change_password') }}
                     </h2>
                 </div>
             </div>
@@ -34,9 +34,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Current Password</label>
+                                                <label class="form-label">{{ __('messages.current_password') }}</label>
                                                 <input type="password" class="form-control" name="current_password" value=""
-                                                       placeholder="Password placeholder" required>
+                                                       placeholder="{{ __('messages.current_password') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -46,9 +46,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">New Password</label>
+                                                <label class="form-label">{{ __('messages.new_password') }}</label>
                                                 <input type="password" class="form-control" name="new_password" value=""
-                                                       placeholder="Password placeholder" required>
+                                                       placeholder="{{ __('messages.new_password') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -58,9 +58,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">New Password Confirmation</label>
+                                                <label class="form-label">{{ __('messages.new_password_confirmation') }}</label>
                                                 <input type="password" class="form-control" name="new_password_confirmation" value=""
-                                                       placeholder="Password placeholder" required>
+                                                       placeholder="{{ __('messages.new_password_confirmation') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@
                                         <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
                                         <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
                                         <line x1="16" y1="5" x2="19" y2="8"></line>
-                                    </svg> Change</button>
+                                    </svg> {{ __('messages.change') }}</button>
                             </div>
                         </div>
                     </form>

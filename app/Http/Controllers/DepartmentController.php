@@ -31,7 +31,7 @@ class DepartmentController extends Controller
         Department::create($request->all());
 
         //redirect
-        return Redirect()->route('admin.department.list')->withSuccess('Department added successfully');
+        return Redirect()->route('admin.department.list')->withSuccess(__('messages.department_added_successfully'));
     }
 
     public function edit($id)
@@ -54,7 +54,7 @@ class DepartmentController extends Controller
         $department->fill($request->all())->save();
 
         //redirect
-        return Redirect()->route('admin.department.list')->withSuccess('Department updated successfully');
+        return Redirect()->route('admin.department.list')->withSuccess(__('messages.department_updated_successfully'));
     }
 
     public function delete($id)
@@ -66,6 +66,6 @@ class DepartmentController extends Controller
         $department->delete();
 
         //redirect
-        return Redirect()->route('admin.department.list')->withSuccess('Department deleted successfully');
+        return Redirect()->route('admin.department.list')->withSuccess(__('messages.department_deleted_successfully'));
     }
 }

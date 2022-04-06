@@ -30,15 +30,15 @@ class UserController extends Controller
             //redirect
             //agent, customer
             if (Auth::user()->type === 'admin') {
-                return Redirect()->route('dashboard.admin')->withSuccess('Signed in');
+                return Redirect()->route('dashboard.admin')->withSuccess(__('messages.signed_in'));
             } elseif(Auth::user()->type === 'agent') {
-                return Redirect()->route('dashboard.agent')->withSuccess('Signed in');
+                return Redirect()->route('dashboard.agent')->withSuccess(__('messages.signed_in'));
             } elseif(Auth::user()->type === 'customer') {
-                return Redirect()->route('dashboard.customer')->withSuccess('Signed in');
+                return Redirect()->route('dashboard.customer')->withSuccess(__('messages.signed_in'));
             }
         }
 
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("login")->withSuccess(__('messages.login_details_are_not_valid'));
     }
 
     public function registration()
@@ -57,7 +57,7 @@ class UserController extends Controller
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect("login")->withSuccess('Registered successfully');
+        return redirect("login")->withSuccess(__('messages.registered_successfully'));
     }
 
     public function create(array $data)
@@ -113,7 +113,7 @@ class UserController extends Controller
         User::create($request->all());
 
         //redirect
-        return Redirect()->route('admin.user.list')->withSuccess('User added successfully');
+        return Redirect()->route('admin.user.list')->withSuccess(__('messages.user_added_successfully'));
     }
 
     public function editUser($id)
@@ -145,7 +145,7 @@ class UserController extends Controller
         $user->fill($request->all())->save();
 
         //redirect
-        return Redirect()->route('admin.user.list')->withSuccess('User updated successfully');
+        return Redirect()->route('admin.user.list')->withSuccess(__('messages.user_updated_successfully'));
     }
 
     public function deleteUser($id)
@@ -157,7 +157,7 @@ class UserController extends Controller
         $user->delete();
 
         //redirect
-        return Redirect()->route('admin.user.list')->withSuccess('User deleted successfully');
+        return Redirect()->route('admin.user.list')->withSuccess(__('messages.user_deleted_successfully'));
     }
 
     public function changePassword()
@@ -177,7 +177,7 @@ class UserController extends Controller
         //check password
         if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
             // The passwords matches
-            return redirect()->back()->withErrors("Your current password does not matches with the password.");
+            return redirect()->back()->withErrors(__('messages.your_current_password_does_not_matches_with_the_password'));
         }
 
         //patch user
@@ -186,7 +186,7 @@ class UserController extends Controller
         $user->save();
 
         //redirect
-        return redirect()->back()->withSuccess("User updated successfully");
+        return redirect()->back()->withSuccess(__('messages.user_updated_successfully'));
     }
 
     public function signOut()

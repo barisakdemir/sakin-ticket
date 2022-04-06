@@ -33,18 +33,18 @@
                       @endforeach
                   </div>
               @endif
-            <h2 class="card-title text-center mb-4">Forgot Password</h2>
+            <h2 class="card-title text-center mb-4">{{ __('messages.forgot_Password') }}</h2>
             <div class="mb-3">
-              <label class="form-label">Email address</label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="Enter email" required autofocus>
+              <label class="form-label">{{ __('messages.email_address') }}</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="{{ __('messages.email_address') }}" required autofocus>
             </div>
             <div class="form-footer">
-              <button type="submit" class="btn btn-primary w-100">Send</button>
+              <button type="submit" class="btn btn-primary w-100">{{ __('messages.send') }}</button>
             </div>
           </div>
         </form>
         <div class="text-center text-muted mt-3">
-          Don't have account yet? <a href="{{ route('register') }}" tabindex="-1">Register</a>
+            {{ __('messages.dont_have_account_yet') }} <a href="{{ route('register') }}" tabindex="-1">{{ __('messages.register') }}</a>
         </div>
       </div>
     </div>

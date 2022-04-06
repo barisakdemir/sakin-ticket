@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        Add Department
+                        {{ __('messages.add_department') }}
                     </h2>
                 </div>
             </div>
@@ -34,9 +34,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Name</label>
+                                                <label class="form-label">{{ __('messages.name') }}</label>
                                                 <input type="text" class="form-control" name="name" value=""
-                                                       placeholder="Name placeholder" required>
+                                                       placeholder="{{ __('messages.name') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -49,7 +49,7 @@
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <line x1="12" y1="5" x2="12" y2="19"></line>
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg> Add department</button>
+                                    </svg> {{ __('messages.add_department') }}</button>
                             </div>
                         </div>
                     </form>

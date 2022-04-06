@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        Departments
+                        {{ __('messages.departments') }}
                     </h2>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                             <line x1="12" y1="5" x2="12" y2="19"></line>
                                             <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg> Add Department
+                                        </svg> {{ __('messages.add_department') }}
                                     </a>
                                 </div>
                             </div>
@@ -55,8 +55,8 @@
                                 class="table table-vcenter card-table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Number of Agents</th>
+                                    <th>{{ __('messages.name') }}</th>
+                                    <th>{{ __('messages.number_of_agents') }}</th>
                                     <th class="w-1"></th>
                                 </tr>
                                 </thead>
@@ -77,7 +77,7 @@
                                                             <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                                                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                                             <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
-                                                        </svg>Manage Department Agents</button>
+                                                        </svg>{{ __('messages.manage_department_agents') }}</button>
                                                 </form>
                                                 <form action="{{ route('admin.department.edit', ['id' => $department->id]) }}" method="GET">
                                                     <button type="submit" class="btn btn-info ms-auto">
@@ -86,19 +86,19 @@
                                                             <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
                                                             <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
                                                             <line x1="16" y1="5" x2="19" y2="8"></line>
-                                                        </svg>Edit</button>
+                                                        </svg>{{ __('messages.edit') }}</button>
                                                 </form>
                                                 <form action="{{ route('admin.department.delete', ['id' => $department->id]) }}" method="POST">
                                                     @csrf
                                                     {{ method_field('DELETE') }}
                                                     <button type="submit" class="btn btn-danger ms-auto"
-                                                            onclick="return confirm('Are you sure you want to delete this?');">
+                                                            onclick="return confirm('{{ __('messages.are_you_sure_you_want_to_delete_this') }}');">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                             <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
                                                             <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
                                                             <line x1="16" y1="5" x2="19" y2="8"></line>
-                                                        </svg>Delete</button>
+                                                        </svg>{{ __('messages.delete') }}</button>
                                                 </form>
                                             </div>
                                         </td>
