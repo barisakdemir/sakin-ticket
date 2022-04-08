@@ -28,7 +28,7 @@
                 @elseif(Auth::user()->type === 'customer')
                 {{ route('dashboard.customer') }}
                 @endif">
-                    <img src="/static/logo-white.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+                    <img src="/static/st-logo-white.png" width="232" height="68" alt="Sakin Ticket" class="navbar-brand-image">
                 </a>
             </h1>
             <div class="collapse navbar-collapse" id="navbar-menu">

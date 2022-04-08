@@ -16,7 +16,7 @@
     <div class="page page-center">
       <div class="container-tight py-4">
         <div class="text-center mb-4">
-          <a href="."><img src="./static/logo.svg" height="36" alt=""></a>
+            <a href="."><img src="./static/st-logo-dark.png" height="50" alt=""></a>
         </div>
         <form class="card card-md" action="{{ route('forgotPassword.store') }}" method="post" autocomplete="off">
             @csrf
