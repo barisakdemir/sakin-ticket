@@ -11,7 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\TicketMessage;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use Psy\Util\Str;
+use Str;
 
 class SendTicketMessageMail implements ShouldQueue
 {
@@ -43,9 +43,11 @@ class SendTicketMessageMail implements ShouldQueue
         $ticketLastMessage = $ticketMessage->message;
         $ticketLastMessageDatetime = $ticketMessage->created_at;
 
-        $emailBody = "<h1>$ticketTitle</h1>";
-        $emailBody .= "<p>$ticketLastMessageDatetime</p>";
-        $emailBody .= "<p>$ticketLastMessage</p>";
+        $emailBody = view('mail/ticket', [
+            'ticketTitle' => $ticketTitle,
+            'ticketLastMessageDatetime' => $ticketLastMessageDatetime,
+            'ticketLastMessage' => $ticketLastMessage
+        ]);
         /*prepare data finish*/
 
         /*send email*/

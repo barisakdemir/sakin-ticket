@@ -40,6 +40,10 @@ Route::get('reset-password/{token}', [ForgotPasswordController::class, 'reset'])
 Route::post('reset-password/{token}', [ForgotPasswordController::class, 'resetStore'])->name('forgotPassword.resetStore');
 /*forgot password finish*/
 
+/*crontab*/
+Route::get('test-email-read', [TicketController::class, 'readEmailCron']);
+/*crontab finish*/
+
 /*common pages for all user*/
 Route::group([
     'middleware' => ['auth']
@@ -86,8 +90,6 @@ Route::group([
 
     Route::get('report/department', [ReportController::class, 'departmentView'])->name('admin.report.department');
     Route::get('report/agent',      [ReportController::class, 'agentView'])     ->name('admin.report.agent');
-
-    Route::get('test-email-read', [TicketController::class, 'readEmailCron']);
 
     Route::get('api-token/list',     [ApiTokenController::class, 'list'])->name('admin.api.token.list');
     Route::get('api-token/generate', [ApiTokenController::class, 'generate'])->name('admin.api.token.generate');

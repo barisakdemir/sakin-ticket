@@ -11,7 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\PasswordReset;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use Psy\Util\Str;
+use Str;
 
 class SendForgotPasswordMail implements ShouldQueue
 {
@@ -41,8 +41,7 @@ class SendForgotPasswordMail implements ShouldQueue
         $emailAddress = $passwordReset->email;
         $subject = 'Password Reset Request | ' . env('APP_NAME');
 
-        $emailBody = "<h1>Password Reset Request</h1>";
-        $emailBody .= '<p><a href="'.env('APP_URL').'/reset-password/'.$passwordReset->token.'">Click to reset password</a></p>';
+        $emailBody = view('mail/forgot-password', ['token' => $passwordReset->token]);
         /*prepare data finish*/
 
         /*send email*/

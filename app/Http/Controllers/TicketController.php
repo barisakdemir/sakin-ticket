@@ -144,10 +144,8 @@ class TicketController extends Controller
 
     public function readEmailCron()
     {
-        $inbox = imap_open("{mail.sakinadam.com:143/imap/notls}INBOX", env('MAIL_USERNAME'), env('MAIL_PASSWORD')) or die('Cannot connect to email: ' . imap_last_error());
+        $inbox = imap_open("{".env('MAIL_HOST').":143/imap/notls}INBOX", env('MAIL_USERNAME'), env('MAIL_PASSWORD')) or die('Cannot connect to email: ' . imap_last_error());
         $emails = imap_search($inbox, 'ALL');
-        //imap_delete($inbox, 1);
-        //imap_expunge($inbox);
 
         if ($emails) {
             rsort($emails);
@@ -158,22 +156,12 @@ class TicketController extends Controller
                 /*fetch info for ticket*/
                 //get from email
                 $emailAddress = $header->sender[0]->mailbox . '@' . $header->sender[0]->host;
-                //$subject = $header->subject;
 
                 //prepare
                 $subject = $this->parseEmailSubject($header->subject);
                 $ticket = $this->findTicketIfExist($this->parseEmailSubject($header->subject), $emailAddress);
                 $message = $this->parseEmailBody($message);
                 /*fetch info for ticket finish*/
-
-                /*echo '<pre>';
-                var_dump('msg_number:', $msg_number);
-                var_dump('Email:', $emailAddress);
-                var_dump('Subject', $subject);
-                var_dump('Ticket', $ticket);
-                var_dump('MesajParse:', $message);
-                echo '</pre>';
-                echo '<hr />';*/
 
                 /*store*/
                 if ($ticket !== false) {
