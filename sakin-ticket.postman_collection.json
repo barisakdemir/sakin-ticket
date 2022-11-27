@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "cf676c2f-58c1-436a-8bfa-90d78e944431",
+		"name": "sakin-ticket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ticket-add",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"department_id\": 1,\n    \"importance\": 3,\n    \"title\": \"Ticket Title\",\n    \"message\": \"Ticket Message\",\n    \"name\": \"Example Guest\",\n    \"email\": \"example@example71.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://example.com/api/ticket/add?_token=$2y$10$dAKMaMZEfJ/fc5dOKmRo8.mKDU7pqAE4lQrxFeF2viW3XEZtvaGPe",
+					"protocol": "http",
+					"host": [
+						"example",
+						"com"
+					],
+					"path": [
+						"api",
+						"ticket",
+						"add"
+					],
+					"query": [
+						{
+							"key": "_token",
+							"value": "$2y$10$dAKMaMZEfJ/fc5dOKmRo8.mKDU7pqAE4lQrxFeF2viW3XEZtvaGPe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "department-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://example.com/api/department/list?_token=$2y$10$dAKMaMZEfJ/fc5dOKmRo8.mKDU7pqAE4lQrxFeF2viW3XEZtvaGPe",
+					"protocol": "http",
+					"host": [
+						"example",
+						"com"
+					],
+					"path": [
+						"api",
+						"department",
+						"list"
+					],
+					"query": [
+						{
+							"key": "_token",
+							"value": "$2y$10$dAKMaMZEfJ/fc5dOKmRo8.mKDU7pqAE4lQrxFeF2viW3XEZtvaGPe"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

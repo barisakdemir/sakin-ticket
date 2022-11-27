@@ -94,40 +94,6 @@
                     </div>
                 @endforeach
 
-                <!--<div class="col-12">
-                    <div class="row">
-                        <div class="col-xl-9 card border rounded-3 border-secondary">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="col-md-6 col-xl-12">
-                                            <div class="mb-3">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <h2 class="page-title">Lorem Ipsum</h2>
-                                                        <div class="page-subtitle">
-                                                            <div class="row">
-                                                                <div class="col-auto">
-                                                                    <a href="#" class="text-reset">2021/03/09 12:30</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <hr />
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3">&nbsp;</div>
-                    </div>
-                </div>-->
-
             </div>
         </div>
     </div>
