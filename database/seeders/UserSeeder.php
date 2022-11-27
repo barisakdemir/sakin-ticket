@@ -16,8 +16,8 @@ class UserSeeder extends Seeder
     public function run()
     {
         \App\Models\User::insert([
-            'name' => 'Barış AKDEMİR',
-            'email' => 'baris.akdemir.03@gmail.com',
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
             'type' => 'admin',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
 
         \App\Models\User::insert([
             'name' => 'Agent User',
-            'email' => 'agent.user@test.com',
+            'email' => 'agent@example.com',
             'type' => 'agent',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
 
         \App\Models\User::insert([
             'name' => 'Agent User 2',
-            'email' => 'agent.user.2@test.com',
+            'email' => 'agent2@example.com',
             'type' => 'agent',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
 
         \App\Models\User::insert([
             'name' => 'Customer User',
-            'email' => 'customer.user@test.com',
+            'email' => 'customer@example.com',
             'type' => 'customer',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
