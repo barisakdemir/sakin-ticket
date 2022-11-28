@@ -256,7 +256,7 @@
                         <ul class="list-inline list-inline-dots mb-0">
                             <li class="list-inline-item">
                                 Copyright &copy; 2022
-                                All rights reserved.
+                                All rights reserved. Developed by <a href="http://sakinadam.com/">Sakin Adam</a>
                             </li>
                         </ul>
                     </div>
@@ -374,15 +374,13 @@
     </div>
 </div>
 <!-- Libs JS -->
-<script src="/dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-<script src="/dist/libs/jsvectormap/dist/js/jsvectormap.min.js"></script>
-<script src="/dist/libs/jsvectormap/dist/maps/world.js"></script>
-<script src="/dist/libs/jsvectormap/dist/maps/world-merc.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.33.1"></script>
 <!-- Tabler Core -->
 <script src="/dist/js/tabler.min.js"></script>
 <script src="/dist/js/demo.min.js"></script>
 
-<script src="/dist/libs/litepicker/dist/litepicker.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+<!--<script src="/dist/libs/litepicker/dist/litepicker.js"></script>-->
 <script>
     // @formatter:off
     document.addEventListener("DOMContentLoaded", function () {
