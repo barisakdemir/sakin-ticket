@@ -37,14 +37,14 @@
             <h2 class="card-title text-center mb-4">{{ __('messages.register') }}</h2>
             <div class="mb-3">
               <label class="form-label">{{ __('messages.name') }}</label>
-              <input type="text" id="name" name="name" class="form-control" placeholder="{{ __('messages.name') }}" required autofocus>
+              <input type="text" id="name" name="name" class="form-control" placeholder="{{ __('messages.name') }}" value="{{ old('name') }}" required autofocus>
                 @if ($errors->has('name'))
                 <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
             </div>
             <div class="mb-3">
               <label class="form-label">{{ __('messages.email_address') }}</label>
-              <input type="email" id="email_address" name="email" class="form-control" placeholder="{{ __('messages.email_address') }}" required autofocus >
+              <input type="email" id="email_address" name="email" class="form-control" placeholder="{{ __('messages.email_address') }}" value="{{ old('email') }}" required autofocus >
                 @if ($errors->has('email'))
                 <span class="text-danger">{{ $errors->first('email') }}</span>
                 @endif
@@ -58,11 +58,23 @@
                 <span class="text-danger">{{ $errors->first('password') }}</span>
                 @endif
             </div>
+              <div class="mb-3">
+              <label class="form-label">{{ __('messages.password_confirmation') }}</label>
+              <div class="input-group input-group-flat">
+                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control"  placeholder="{{ __('messages.password') }}"  autocomplete="off" required autofocus>
+              </div>
+              @if ($errors->has('password'))
+                <span class="text-danger">{{ $errors->first('password') }}</span>
+                @endif
+            </div>
             <div class="mb-3">
-              <label class="form-check">
-                <input type="checkbox" class="form-check-input"/>
-                <span class="form-check-label"><a href="./terms-of-service.html" tabindex="-1">{{ __('messages.agree_the_terms_and_policy') }}</a>.</span>
-              </label>
+                <label class="form-check">
+                    <input type="checkbox" name="terms_and_policy" class="form-check-input" required/>
+                    <span class="form-check-label"><a href="#" data-bs-toggle="modal" data-bs-target="#terms_and_policy">{{ __('messages.agree_the_terms_and_policy') }}</a>.</span>
+                </label>
+                @if ($errors->has('terms_and_policy'))
+                    <span class="text-danger">{{ $errors->first('terms_and_policy') }}</span>
+                @endif
             </div>
             <div class="form-footer">
               <button type="submit" class="btn btn-primary w-100">{{ __('messages.create_new_account') }}</button>
@@ -75,6 +87,22 @@
       </div>
     </div>
     <!-- Libs JS -->
+    <div class="modal modal-blur fade" id="terms_and_policy" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Terms and Policy</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @include('terms-and-policy')
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Tabler Core -->
     <script src="./dist/js/tabler.min.js"></script>
   </body>
