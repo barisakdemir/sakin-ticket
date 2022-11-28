@@ -35,9 +35,11 @@ class UserTest extends TestCase
     public function a_guest_can_post_registration_page()
     {
         $response = $this->followingRedirects()->post('/registration', [
-            'name'      => 'Test Case',
-            'email'     => 'test.case@example.com',
-            'password'  => 'tEst$cASe',
+            'name'                  => 'Test Case',
+            'email'                 => 'test.case@example.com',
+            'password'              => 'tEst$cASe',
+            'password_confirmation' => 'tEst$cASe',
+            'terms_and_policy'      => 'on',
         ])->assertStatus(200);
 
         $this->assertStringContainsString('Registered successfully', $response->getContent());
@@ -65,7 +67,7 @@ class UserTest extends TestCase
             'password' => 'tEst$cASe',
         ])->assertStatus(302);
 
-        $response->assertRedirect(route('dashboard'));
+        $response->assertRedirect(route('dashboard.customer'));
     }
 
     /**
