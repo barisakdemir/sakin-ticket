@@ -1,4 +1,7 @@
 # sakin-ticket
+<p align="center">
+  <img src="https://sakinticket.sakinadam.com/static/st-logo-dark.png" />
+</p>
 
 Sakin Ticket build on Laravel Framework. <br />
 Laravel version: 9.3 <br />
@@ -36,3 +39,10 @@ Crontab jobs
 ## Tests on postman import json
 
 [Postman Json File](https://github.com/barisakdemir/sakin-ticket/blob/main/sakin-ticket.postman_collection.json)
+
+## Screenshots
+<img src="https://sakinticket.sakinadam.com/static/screenshots/dashboard.png" />
+<img src="https://sakinticket.sakinadam.com/static/screenshots/agent-tickets.png" />
+<img src="https://sakinticket.sakinadam.com/static/screenshots/agent-ticket-detail.png" />
+<img src="https://sakinticket.sakinadam.com/static/screenshots/departments.png" />
+<img src="https://sakinticket.sakinadam.com/static/screenshots/department-report.png" />

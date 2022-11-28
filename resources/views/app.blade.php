@@ -1,4 +1,9 @@
 <!doctype html>
+<!--
+* Sakin Ticket is a ticket management software
+* @link https://github.com/barisakdemir/sakin-ticket
+* Licensed under GNU (https://github.com/barisakdemir/sakin-ticket/blob/main/LICENSE.txt)
+-->
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -16,7 +21,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'G-MGCPKQNPQ0');
     </script>
 </head>
